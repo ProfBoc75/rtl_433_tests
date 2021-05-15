@@ -18,4 +18,6 @@ rtl_433 -f 868M -X "n=STATION,m=FSK_PCM,s=100,l=100,r=100000,preamble={48}aaaaaa
 {"time" : "@0.092766s", "model" : "STATION", "count" : 1, "num_rows" : 1, "rows" : [{"len" : 168, "data" : "63ce971d9c2a4e08c80a00308e0981982000000000"}], "codes" : ["{168}63ce971d9c2a4e08c80a00308e0981982000000000"]}
 ```
 
+but  ... the signal is sent 3 times exactly same values and crc algorithme is unknown.
+
 
