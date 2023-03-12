@@ -1,7 +1,9 @@
 # AOK 5056 Weather Station
 
-Conrad Renkforce AOK-5056  
-Optex Electronique 99018 SM-018 5056  
+![Optex 990018](https://github.com/ProfBoc75/rtl_433_tests/raw/patch-1/tests/aok_5056/Optex_990018.jpeg)
+
+[Conrad Renkforce AOK-5056](https://asset.conrad.com/media10/add/160267/c1/-/fr/001341307ML02/mode-demploi-1341307-station-meteo-radiopilotee-numerique-renkforce-aok-5056.pdf)  
+Optex Electronique 990018 SM-018 5056
 
 Same base as Holman Industries WS5029 weather station (PCM) but with LUX and index UV values.  
 
