@@ -20,21 +20,25 @@ Payload format: With UV Lux sensor
     Fixed Values 0x  : AA AA AA AA AA AA 98 F3 A5
 
     Byte position    : 00 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17 18
-    Payload          : II II CC CH HR RR WW DU UL LL BN NN SS 0D 00 00 00 00 0
+    Payload          : II II CC CH HR RR WW |         | NN SS 0D 00 00 00 00 0
+                                +-----------+         +-------------+
+                                |                                   |
+                                |   07       08       09       10   |
+                  bits details : DDDDUUUU ULLLLLLL LLLLLLLL LLBBNNNN
 
-- IIII        station ID (randomised on each battery insertion)
-- CCC         degrees C, signed, in multiples of 0.1 C
-- HH          humidity %
-- RRR         cumulative rain in mm
-- WW          wind speed in km/h
-- D           wind direction (0 = N, 4 = E, 8 = S, 12 = W)
-- UU          Index UV
-- LLLB        Lux
-- B           Batterie
-- NNN         Payload number, increase at each message 000->FFF but not always, strange behavior. no clue
-- SS          XOR bytes checksum, lower nibble properly decoded, not the upper, unknown calcul.
-- D           Previous Wind direction other values
-- Fixed values to 9 zeros.
+- I     station ID (randomised on each battery insertion)
+- C     degrees C, signed, in multiples of 0.1 C
+- H     humidity %
+- R     cumulative rain in mm
+- W     wind speed in km/h
+- D     wind direction (0 = N, 4 = E, 8 = S, 12 = W)
+- U     Index UV
+- L     Lux
+- B     Battery
+- N     Payload number, increase at each message 000->FFF but not always, strange behavior. no clue
+- S     XOR bytes checksum, lower nibble properly decoded, not the upper, unknown calcul.
+- D     Previous Wind direction
+- Fixed values to 9 zeros
 
 [BitBench](https://triq.net/bitbench#c=aaaaaaaaaaaa98f3a5c7670982b9080280111e47ca7a0b000000000&c=aaaaaaaaaaaa98f3a5c7670972b90803d0f36747cb9109000000000&c=aaaaaaaaaaaa98f3a5c7670972b21007a1e6ce8f972212000000000&c=aaaaaaaaaaaa98f3a5c7670982b90901805ffa87cc3409000000000&c=aaaaaaaaaaaa98f3a5c76709d2b909024397c2c7ce760f000000000&c=aaaaaaaaaaaa98f3a5c76709d2b90902409c8947d74c0b000000000&f=ID%3A16h%20TEMP_C%3A12s%20HUM_%25%3A8d%20RAIN_MM%3A12d%20WIND_SPEED_KMH%3A8d%20WIND_DIRECTION%3A4h%20UV_INDEX%3A5d%20LUX%3A17h%20BAT%3A2h%20COUNTER%3A12h%20XOR%3A8h%204h%20PREV_DIR%3A4h%2036x&a=Preamble&m=aaaaaaaaaaaa98f3a5&cw=4)
 
